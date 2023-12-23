@@ -1,6 +1,27 @@
-# React And Django App
+# Users CRUD Operations
 
-CRUD Operations using React for frontend and Django for backend
+#### Video Demo:
+
+https://www.loom.com/share/559d3deae0da4d77b47e0b9175afef82?sid=12dab4a2-774f-4530-8a17-4e5e62abd2c4
+
+#### Description:
+
+Website to manage records of your workers or employees with the following features:
+
+- Read/View data
+- Add new data
+- Update existing data
+- Delete/Remove data
+
+**Technologies used:**
+
+- reactjs
+- boostrap v5
+- reactstrap
+- react-hot-toast
+- django
+- django-rest-framework
+- sqlite
 
 ## Run the Project
 
@@ -9,6 +30,7 @@ Clone the repository
 #### Running the Django Project
 
 > Move into server directory (django):
+
 ```
 cd server
 ```
@@ -21,21 +43,24 @@ cd server
 python -m venv <path to venv>
 ```
 
-> Activate virtual environment 
+> Activate virtual environment
 
 - On WindowsOS
 
 - Using bash:
+
 ```
 source <venv>/Scripts/activate
 ```
 
 - Using CMD:
+
 ```
 <venv>\Scripts\activate.bat
 ```
 
 - Using PowerShell:
+
 ```
 <venv>\Scripts\Activate.ps1
 ```
@@ -83,17 +108,3 @@ npm install
 ```
 npm start
 ```
-
----
-
-### Author Links
-
-👋 Hello, I'm Ikram Ul Haq - Web Developer & Programmer
-
-☕ [Buy Me A Coffee](https://www.buymeacoffee.com/ikramdeveloper)
-
-🚀 Follow Me:
-
-- [Twitter](https://twitter.com/ikramdeveloper)
-- [LinkedIn](https://www.linkedin.com/in/ikramdeveloper/)
-- [StackOverflow](https://stackoverflow.com/users/13859212/ikram-ul-haq)
