@@ -4,7 +4,7 @@ import ConfirmRemovalModal from "./ConfirmRemovalModal";
 
 const ListUsers = ({ users }) => {
   return (
-    <Table dark>
+    <Table light hover bordered>
       <thead>
         <tr>
           <th>Name</th>

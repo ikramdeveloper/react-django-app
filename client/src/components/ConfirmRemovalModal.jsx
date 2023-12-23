@@ -3,6 +3,7 @@ import { Modal, ModalHeader, Button, ModalFooter } from "reactstrap";
 import axios from "axios";
 import { USERS_API_URL } from "../constants";
 import { useAppContext } from "../context/AppContext";
+import toast from "react-hot-toast";
 
 const ConfirmRemovalModal = (props) => {
   const [isModal, setIsModal] = useState(false);
@@ -11,12 +12,20 @@ const ConfirmRemovalModal = (props) => {
   const toggle = () => setIsModal((prev) => !prev);
 
   const handleDelete = async (id) => {
-    try {
+    const g = async () => {
       const resp = await axios.delete(`${USERS_API_URL}/${id}`);
       if ((resp.statusText = "OK")) {
         toggle();
         getUsers();
       }
+    };
+
+    try {
+      await toast.promise(g(), {
+        loading: "Deleting user...",
+        success: "User deleted",
+        error: (err) => err.message,
+      });
     } catch (err) {
       console.log(err);
     }

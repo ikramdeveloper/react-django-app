@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 import { USERS_API_URL } from "../constants";
 import { useAppContext } from "../context/AppContext";
 
@@ -21,13 +22,21 @@ const NewUserForm = (props) => {
 
   const handleAddUser = async (e) => {
     e.preventDefault();
-    try {
+
+    const g = async () => {
       const resp = await axios.post(USERS_API_URL, formData);
       if ((resp.statusText = "OK")) {
         setFormData(initialData);
         props.toggle();
         getUsers();
       }
+    };
+    try {
+      await toast.promise(g(), {
+        loading: "Creating user...",
+        success: "User added",
+        error: (err) => err.message,
+      });
     } catch (err) {
       console.log(err);
     }
@@ -35,7 +44,8 @@ const NewUserForm = (props) => {
 
   const handleEditUser = async (e) => {
     e.preventDefault();
-    try {
+
+    const g = async () => {
       const resp = await axios.put(
         `${USERS_API_URL}/${props.user.id}`,
         formData
@@ -45,6 +55,14 @@ const NewUserForm = (props) => {
         props.toggle();
         getUsers();
       }
+    };
+
+    try {
+      await toast.promise(g(), {
+        loading: "Updating user...",
+        success: "User updated",
+        error: (err) => err.message,
+      });
     } catch (err) {
       console.log(err);
     }

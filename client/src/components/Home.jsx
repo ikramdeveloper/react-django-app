@@ -1,22 +1,21 @@
-import { useState, useEffect } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Col, Container, Row } from "reactstrap";
+import { useAppContext } from "../context/AppContext";
 import ListUsers from "./ListUsers";
 import NewUserModal from "./NewUserModal";
-import { useAppContext } from "../context/AppContext";
 
 const Home = () => {
   const { users } = useAppContext();
 
   return (
-    <Container style={{ marginTop: "20px" }}>
-      <Row>
-        <Col>
-          <ListUsers users={users} />
+    <Container>
+      <Row className="pt-4">
+        <Col className="text-end">
+          <NewUserModal create={true} />
         </Col>
       </Row>
-      <Row>
+      <Row className="mt-4 pt-4 pb-2 px-2 bg-white rounded">
         <Col>
-          <NewUserModal create={true} />
+          <ListUsers users={users} />
         </Col>
       </Row>
     </Container>
